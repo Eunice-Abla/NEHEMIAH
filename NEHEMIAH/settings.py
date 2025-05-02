@@ -54,6 +54,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'NEHEMIAH.urls'
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'utilisateurs' / 'static',
+   
+]
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
