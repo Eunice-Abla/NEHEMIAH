@@ -1,0 +1,88 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Formulaire de réinscription{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Réinscription au programme Nehemia</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Réinscription</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Formulaire de réinscription</h4>
+                    <p class="card-category">Remplissez ce formulaire pour vous réinscrire au programme pour l'année 2023-2024</p>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName">Prénom</label>
+                                    <input type="text" class="form-control" id="firstName" value="Jean" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName">Nom</label>
+                                    <input type="text" class="form-control" id="lastName" value="Dupont" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" value="jean.dupont@example.com" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="field">Filière d'étude</label>
+                            <select class="form-control" id="field">
+                                <option>Informatique</option>
+                                <option>Mode</option>
+                                <option>Ingénierie</option>
+                                <option>Design</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="motivation">Lettre de motivation</label>
+                            <textarea class="form-control" id="motivation" rows="5" placeholder="Expliquez pourquoi vous souhaitez continuer dans le programme"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="achievements">Réalisations cette année</label>
+                            <textarea class="form-control" id="achievements" rows="5" placeholder="Décrivez vos réalisations et apprentissages cette année"></textarea>
+                        </div>
+                        
+                        <div class="form-check mt-3 mb-3">
+                            <input class="form-check-input" type="checkbox" id="agreeTerms">
+                            <label class="form-check-label" for="agreeTerms">
+                                Je certifie que les informations fournies sont exactes et j'accepte les conditions du programme
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Soumettre ma réinscription</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

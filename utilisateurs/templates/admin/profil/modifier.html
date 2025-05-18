@@ -1,0 +1,141 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Modifier mon Profil{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Modifier mon Profil</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="{% url 'dashboard' %}">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="">Profil</a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Modifier</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Informations personnelles</h4>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editFirstName">Prénom</label>
+                                    <input type="text" class="form-control" id="editFirstName" value="Jean">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editLastName">Nom</label>
+                                    <input type="text" class="form-control" id="editLastName" value="Dupont">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editEmail">Email</label>
+                                    <input type="email" class="form-control" id="editEmail" value="jean.dupont@example.com">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editPhone">Téléphone</label>
+                                    <input type="tel" class="form-control" id="editPhone" value="+33 6 12 34 56 78">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="editField">Filière d'étude</label>
+                            <select class="form-control" id="editField">
+                                <option>Informatique</option>
+                                <option>Mode</option>
+                                <option>Ingénierie</option>
+                                <option>Design</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="editAddress">Adresse</label>
+                            <textarea class="form-control" id="editAddress" rows="2">123 Rue de la République, 75001 Paris</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Photo de profil</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="customFile">
+                                <label class="custom-file-label" for="customFile">Choisir une image</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Liens sociaux</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fab fa-linkedin"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Profil LinkedIn">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fab fa-github"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Profil GitHub">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="editBio">À propos de moi</label>
+                            <textarea class="form-control" id="editBio" rows="3" placeholder="Décrivez-vous en quelques mots..."></textarea>
+                        </div>
+                        
+                        <div class="form-check mt-3 mb-3">
+                            <input class="form-check-input" type="checkbox" id="profileVisibility">
+                            <label class="form-check-label" for="profileVisibility">
+                                Rendre mon profil visible aux autres étudiants
+                            </label>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="" class="btn btn-secondary">Annuler</a>
+                            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Add the following JavaScript to make the file input show the file name
+    document.querySelector('.custom-file-input').addEventListener('change', function(e) {
+        var fileName = document.getElementById("customFile").files[0].name;
+        var nextSibling = e.target.nextElementSibling;
+        nextSibling.innerText = fileName;
+    });
+</script>
+{% endblock %}

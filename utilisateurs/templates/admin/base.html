@@ -5,6 +5,15 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{% block title %}{% endblock %}</title>
+    <style>
+      div.card-header{
+        background-color: green !important;
+      }
+
+      .card-title, .card-category{
+        color: #fff !important;
+      }
+    </style>
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       name="viewport"
@@ -124,10 +133,6 @@
 
     <!-- Kaiadmin JS -->
     <script src="{% static 'admin/assets/js/kaiadmin.min.js' %}"></script>
-
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="{% static 'admin/assets/js/setting-demo.js' %}"></script>
-    <script src="{% static 'admin/assets/js/demo.js' %}"></script>
     <script>
       $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",

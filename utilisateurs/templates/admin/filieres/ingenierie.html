@@ -1,0 +1,170 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Espace Ingénierie{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Espace Ingénierie</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Filière Ingénierie</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4 class="card-title">Bienvenue dans l'espace Ingénierie</h4>
+                        <span class="badge badge-engineering">Filière Ingénierie</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-engineering">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-hard-hat fa-2x mr-3"></i>
+                            <div>
+                                <h4 class="alert-heading">Contenu spécialisé en Ingénierie</h4>
+                                <p>Accédez à des ressources adaptées à votre filière d'étude</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <!-- Masterclasses Card -->
+                        <div class="col-md-4">
+                            <div class="card card-engineering">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-cogs fa-3x mb-3"></i>
+                                    <h4>Masterclasses Techniques</h4>
+                                    <p>Accédez aux formations spécialisées en ingénierie</p>
+                                    <a href="" class="btn btn-engineering">
+                                        <i class="fas fa-play mr-2"></i>
+                                        Commencer
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Resources Card -->
+                        <div class="col-md-4">
+                            <div class="card card-engineering">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-book fa-3x mb-3"></i>
+                                    <h4>Ressources Techniques</h4>
+                                    <p>Bibliothèque de documents pour ingénieurs</p>
+                                    <a href="#" class="btn btn-engineering">
+                                        <i class="fas fa-search mr-2"></i>
+                                        Explorer
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Projects Card -->
+                        <div class="col-md-4">
+                            <div class="card card-engineering">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-project-diagram fa-3x mb-3"></i>
+                                    <h4>Projets Étudiants</h4>
+                                    <p>Découvrez les projets de la communauté</p>
+                                    <a href="#" class="btn btn-engineering">
+                                        <i class="fas fa-users mr-2"></i>
+                                        Collaborer
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Dernières masterclasses Ingénierie</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Titre</th>
+                                                    <th>Date</th>
+                                                    <th>Durée</th>
+                                                    <th>Statut</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Conception Mécanique Avancée</td>
+                                                    <td>15/10/2023</td>
+                                                    <td>1h45</td>
+                                                    <td><span class="badge badge-success">Terminée</span></td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm btn-engineering">Revoir</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Introduction à l'Ingénierie des Matériaux</td>
+                                                    <td>20/10/2023</td>
+                                                    <td>2h15</td>
+                                                    <td><span class="badge badge-warning">En cours</span></td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm btn-engineering">Continuer</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Thème Ingénierie */
+    .badge-engineering,
+    .btn-engineering {
+        background-color: #1a2980;
+        color: white;
+    }
+    
+    .btn-engineering:hover {
+        background-color: #26d0ce;
+        color: white;
+    }
+    
+    .alert-engineering {
+        background-color: #e3f2fd;
+        border-left: 5px solid #1a2980;
+    }
+    
+    .card-engineering {
+        border-top: 3px solid #1a2980;
+        transition: transform 0.3s;
+    }
+    
+    .card-engineering:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}

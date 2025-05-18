@@ -1,0 +1,92 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Messagerie{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Messagerie</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Messagerie</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Rechercher...">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        <a href="" class="list-group-item list-group-item-action">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-sm mr-3">
+                                    <img src="{% static 'admin/assets/img/profile1.jpg' %}" alt="..." class="avatar-img rounded-circle">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">Mentor Informatique</h6>
+                                    <p class="mb-0 text-muted text-small">Votre rapport a été validé</p>
+                                </div>
+                                <div class="text-right">
+                                    <small class="text-muted">15:30</small>
+                                    <span class="badge badge-primary badge-pill ml-2">3</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-sm mr-3">
+                                    <img src="{% static 'admin/assets/img/profile2.jpg' %}" alt="..." class="avatar-img rounded-circle">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">Marie Martin</h6>
+                                    <p class="mb-0 text-muted text-small">Avez-vous des ressources à partager ?</p>
+                                </div>
+                                <div class="text-right">
+                                    <small class="text-muted">Hier</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Sélectionnez une conversation</h4>
+                </div>
+                <div class="card-body text-center">
+                    <img src="{% static 'admin/assets/img/message.svg' %}" alt="Message" style="max-width: 200px;" class="mb-3">
+                    <h5 class="mb-3">Sélectionnez une conversation pour commencer à discuter</h5>
+                    <p class="text-muted">Vous pouvez échanger avec vos mentors et autres étudiants</p>
+                    <button class="btn btn-primary mt-3">
+                        <i class="fas fa-plus mr-2"></i>
+                        Nouveau message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

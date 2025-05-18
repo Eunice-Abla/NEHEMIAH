@@ -1,0 +1,129 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Soumettre un rapport de lecture{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Soumettre un rapport de lecture</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="">Rapports</a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Nouveau rapport</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Formulaire de soumission</h4>
+                    <p class="card-category">Remplissez ce formulaire pour soumettre votre rapport de lecture</p>
+                </div>
+                <div class="card-body">
+                    <form id="reportForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="bookTitle">Titre du livre*</label>
+                                    <input type="text" class="form-control" id="bookTitle" required>
+                                    <small class="form-text text-muted">Titre complet du livre lu</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="bookAuthor">Auteur(s)*</label>
+                                    <input type="text" class="form-control" id="bookAuthor" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reportSummary">Résumé détaillé*</label>
+                            <textarea class="form-control" id="reportSummary" rows="5" required></textarea>
+                            <small class="form-text text-muted">Minimum 500 caractères</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="keyLearnings">Principaux apprentissages*</label>
+                            <textarea class="form-control" id="keyLearnings" rows="5" required></textarea>
+                            <small class="form-text text-muted">Listez les 3-5 idées principales</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="personalApplication">Application personnelle</label>
+                            <textarea class="form-control" id="personalApplication" rows="3"></textarea>
+                            <small class="form-text text-muted">Comment comptez-vous appliquer ces concepts?</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reportFile">Fichier du rapport (optionnel)</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="reportFile" accept=".pdf,.doc,.docx">
+                                <label class="custom-file-label" for="reportFile">Choisir un fichier (PDF ou Word)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-check mt-3 mb-3">
+                            <input class="form-check-input" type="checkbox" id="confirmationCheck" required>
+                            <label class="form-check-label" for="confirmationCheck">
+                                Je certifie que ce travail est personnel et conforme aux exigences du programme
+                            </label>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="" class="btn btn-secondary">Annuler</a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Soumettre le rapport
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        // Afficher le nom du fichier sélectionné
+        $('.custom-file-input').on('change', function() {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+
+        // Validation du formulaire
+        $('#reportForm').on('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulation de soumission réussie
+            Swal.fire({
+                title: 'Rapport soumis!',
+                text: 'Votre rapport a été envoyé avec succès.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.href = "{% url 'reports_list' %}";
+            });
+        });
+    });
+</script>
+{% endblock %}

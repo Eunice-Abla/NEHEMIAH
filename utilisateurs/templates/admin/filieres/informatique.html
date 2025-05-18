@@ -1,0 +1,87 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Espace Informatique{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Espace Informatique</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Filière Informatique</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Bienvenue dans l'espace Informatique</h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-primary">
+                        <h4 class="alert-heading">Contenu spécialisé</h4>
+                        <p>Cet espace est spécialement conçu pour les étudiants en Informatique avec des ressources adaptées.</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card card-primary bg-primary-gradient">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Masterclasses Tech</h4>
+                                    <p>Accédez aux masterclasses sur le développement et l'IA</p>
+                                    <a href="" class="btn btn-white btn-sm">Voir</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card card-success bg-success-gradient">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Ressources Code</h4>
+                                    <p>Bibliothèque de code et projets exemples</p>
+                                    <a href="#" class="btn btn-white btn-sm">Explorer</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card card-info bg-info-gradient">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Forum Dev</h4>
+                                    <p>Échangez avec la communauté des développeurs</p>
+                                    <a href="" class="btn btn-white btn-sm">Discuter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-primary-gradient {
+        background: linear-gradient(to right, #4776E6, #8E54E9);
+    }
+    
+    .bg-success-gradient {
+        background: linear-gradient(to right, #0cebeb, #20e3b2, #29ffc6);
+    }
+    
+    .bg-info-gradient {
+        background: linear-gradient(to right, #3494E6, #EC6EAD);
+    }
+</style>
+{% endblock %}

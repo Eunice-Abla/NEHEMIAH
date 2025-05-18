@@ -1,0 +1,120 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Conversation avec {{ recipient }}{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Conversation avec {{ recipient }}</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="">Messagerie</a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">{{ recipient }}</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar-sm mr-3">
+                            <img src="{% static 'admin/assets/img/profile1.jpg' %}" alt="..." class="avatar-img rounded-circle">
+                        </div>
+                        <h4 class="card-title mb-0">{{ recipient }}</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="chat-container">
+                        <div class="chat-message received">
+                            <div class="message-content">
+                                <p>Bonjour, votre rapport sur Clean Code a été validé. Excellent travail !</p>
+                                <small class="text-muted">15:30</small>
+                            </div>
+                        </div>
+                        <div class="chat-message sent">
+                            <div class="message-content">
+                                <p>Merci beaucoup ! J'ai beaucoup appris en le rédigeant.</p>
+                                <small class="text-muted">15:32</small>
+                            </div>
+                        </div>
+                        <div class="chat-message received">
+                            <div class="message-content">
+                                <p>Pourriez-vous partager votre rapport avec les autres étudiants ?</p>
+                                <small class="text-muted">15:33</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input mt-4">
+                        <form>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Écrivez votre message...">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .chat-container {
+        max-height: 400px;
+        overflow-y: auto;
+        padding: 15px;
+    }
+    
+    .chat-message {
+        margin-bottom: 15px;
+        max-width: 70%;
+    }
+    
+    .chat-message.received {
+        margin-right: auto;
+    }
+    
+    .chat-message.sent {
+        margin-left: auto;
+        text-align: right;
+    }
+    
+    .message-content {
+        padding: 10px 15px;
+        border-radius: 10px;
+        display: inline-block;
+    }
+    
+    .received .message-content {
+        background-color: #f1f1f1;
+    }
+    
+    .sent .message-content {
+        background-color: #177dff;
+        color: white;
+    }
+</style>
+{% endblock %}
