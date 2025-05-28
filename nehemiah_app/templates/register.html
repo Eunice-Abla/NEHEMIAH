@@ -1,0 +1,358 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Bénéficiaire</title>
+    <style>
+        div.card-header {
+            background-color: #1AA27C !important;
+        }
+        .card-title, .card-category {
+            color: #fff !important;
+        }
+        .required-field::after {
+            content: " *";
+            color: #E84E1B;
+        }
+        .btn-submit {
+            background-color: #1AA27C !important;
+            color: white !important;
+        }
+        .btn-reset {
+            background-color: #FF4014 !important;
+            color: white !important;
+        }
+        .invalid-feedback {
+            color: #dc3545;
+            font-size: 0.875em;
+        }
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            color: #1AA27C;
+            font-weight: 600;
+        }
+    </style>
+    <link rel="icon" href="{% static 'admin/assets/img/kaiadmin/favicon.ico' %}" type="image/x-icon">
+    <!-- Fonts and icons -->
+    <script src="{% static 'admin/assets/js/plugin/webfont/webfont.min.js' %}"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["{% static 'admin/assets/css/fonts.min.css' %}"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'admin/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/assets/css/plugins.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/assets/css/kaiadmin.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/assets/css/kaiadmin.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/assets/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="page-inner">
+            <div class="page-header">
+                <h3 class="fw-bold mb-3">Formulaire d'inscription</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Inscription Bénéficiaire</h4>
+                            <p class="card-category">Remplissez toutes les informations requises</p>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                                {% csrf_token %}
+                                
+                                <!-- Section Compte Utilisateur -->
+                                <div class="form-section">
+                                    <h5 class="section-title mb-3">
+                                        <i class="fas fa-user-circle me-2"></i> Création du compte
+                                    </h5>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="{{ user_form.username.id_for_label }}" class="form-label required-field">
+                                                    Nom d'utilisateur
+                                                </label>
+                                                {{ user_form.username }}
+                                                {% if user_form.username.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ user_form.username.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="{{ user_form.email.id_for_label }}" class="form-label required-field">
+                                                    Email
+                                                </label>
+                                                {{ user_form.email }}
+                                                {% if user_form.email.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ user_form.email.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="{{ user_form.password1.id_for_label }}" class="form-label required-field">
+                                                    Mot de passe
+                                                </label>
+                                                {{ user_form.password1 }}
+                                                {% if user_form.password1.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ user_form.password1.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="{{ user_form.password2.id_for_label }}" class="form-label required-field">
+                                                    Confirmation
+                                                </label>
+                                                {{ user_form.password2 }}
+                                                {% if user_form.password2.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ user_form.password2.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="{{ user_form.photo_profil.id_for_label }}" class="form-label">
+                                                    Photo de profil
+                                                </label>
+                                                {{ user_form.photo_profil }}
+                                                {% if user_form.photo_profil.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ user_form.photo_profil.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                  <!-- Section Informations de base -->
+                                <div class="form-section">
+                                    <h5 class="section-title mb-3">
+                                        <i class="fas fa-id-card me-2"></i> Informations personnelles
+                                    </h5>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="{{ beneficiaire_form.numero_cde.id_for_label }}" class="form-label required-field">
+                                                    Numéro CDE
+                                                </label>
+                                                {{ beneficiaire_form.numero_cde }}
+                                                {% if beneficiaire_form.numero_cde.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ beneficiaire_form.numero_cde.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="{{ beneficiaire_form.numero_beneficiaire.id_for_label }}" class="form-label required-field">
+                                                    Numéro bénéficiaire
+                                                </label>
+                                                {{ beneficiaire_form.numero_beneficiaire }}
+                                                {% if beneficiaire_form.numero_beneficiaire.help_text %}
+                                                    <small class="form-text text-muted">
+                                                        {{beneficiaire_form.numero_beneficiaire.help_text}}
+                                                    </small>
+                                                {% endif %}
+                                                {% if beneficiaire_form.numero_beneficiaire.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ beneficiaire_form.numero_beneficiaire.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="{{ beneficiaire_form.sexe.id_for_label }}" class="form-label required-field">
+                                                    Sexe
+                                                </label>
+                                                {{ beneficiaire_form.sexe }}
+                                                {% if beneficiaire_form.sexe.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ beneficiaire_form.sexe.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="{{ beneficiaire_form.nom.id_for_label }}" class="form-label required-field">
+                                                    Date de naissance
+                                                </label>
+                                                {{ beneficiaire_form.nom }}
+                                                {% if beneficiaire_form.nom.help_text %}
+                                                    <small class="form-text text-muted">
+                                                        {{beneficiaire_form.nom.help_text}}
+                                                    </small>
+                                                {% endif %}
+                                                {% if beneficiaire_form.nom.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ beneficiaire_form.nom.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="{{ user_form.prenom.id_for_label }}" class="form-label required-field">
+                                                    Téléphone
+                                                </label>
+                                                {{ beneficiaire_form.prenom }}
+                                                {% if beneficiaire_form.prenom.help_text %}
+                                                    <small class="form-text text-muted">
+                                                        {{beneficiaire_form.prenom.help_text}}
+                                                    </small>
+                                                {% endif %}
+                                                {% if beneficiaire_form.prenom.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ beneficiaire_form.prenom.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="{{ beneficiaire_form.date_naissance.id_for_label }}" class="form-label required-field">
+                                                    Date de naissance
+                                                </label>
+                                                {{ beneficiaire_form.date_naissance }}
+                                                {% if beneficiaire_form.date_naissance.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ beneficiaire_form.date_naissance.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="{{ user_form.telephone.id_for_label }}" class="form-label required-field">
+                                                    Téléphone
+                                                </label>
+                                                {{ user_form.telephone }}
+                                                {% if user_form.telephone.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ user_form.telephone.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="{{ beneficiaire_form.adresse.id_for_label }}" class="form-label required-field">
+                                                    Adresse complète
+                                                </label>
+                                                {{ beneficiaire_form.adresse }}
+                                                {% if beneficiaire_form.adresse.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ beneficiaire_form.adresse.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-check mb-4 mt-4">
+                                    <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                                    <label class="form-check-label" for="agreeTerms">
+                                        Je certifie que les informations fournies sont exactes
+                                    </label>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between mt-4">
+                                    <button type="reset" class="btn btn-reset">
+                                        <i class="fas fa-eraser me-2"></i> Réinitialiser
+                                    </button>
+                                    <button type="submit" class="btn btn-submit">
+                                        <i class="fas fa-user-plus me-2"></i> Enregistrer
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'partial/footer.html' %}
+    <!-- JavaScript Files -->
+    <script src="{% static 'admin/assets/js/core/bootstrap.min.js' %}"></script>
+    <script>
+        // Validation du formulaire
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+</html>

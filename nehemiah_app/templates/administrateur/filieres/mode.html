@@ -1,0 +1,87 @@
+{% extends "administrateur/base.html" %}
+{% load static %}
+
+{% block title %}Espace Mode{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Espace Mode</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Filière Mode</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Bienvenue dans l'espace Mode</h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-primary">
+                        <h4 class="alert-heading">Contenu spécialisé</h4>
+                        <p>Cet espace est spécialement conçu pour les étudiants en Mode avec des ressources adaptées.</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card card-primary bg-primary-gradient">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Masterclasses</h4>
+                                    <p>Accédez aux masterclasses dédiées à la mode et au design</p>
+                                    <a href="" class="btn btn-white btn-sm">Voir</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card card-success bg-success-gradient">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Ressources</h4>
+                                    <p>Documents et modèles spécifiques à la filière Mode</p>
+                                    <a href="#" class="btn btn-white btn-sm">Explorer</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card card-info bg-info-gradient">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Communauté</h4>
+                                    <p>Échangez avec les autres étudiants en Mode</p>
+                                    <a href="" class="btn btn-white btn-sm">Discuter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-primary-gradient {
+        background: linear-gradient(to right, #f857a6, #ff5858);
+    }
+    
+    .bg-success-gradient {
+        background: linear-gradient(to right, #56ccf2, #2f80ed);
+    }
+    
+    .bg-info-gradient {
+        background: linear-gradient(to right, #f2994a, #f2c94c);
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "administrateur/base.html" %}
+{% load static %}
+
+{% block title %}Formulaire de réinscription{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Réinscription au programme Nehemia</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Réinscription</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Formulaire de réinscription</h4>
+                    <p class="card-category">Remplissez ce formulaire pour vous réinscrire au programme pour l'année 2023-2024</p>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+    {% csrf_token %}
+    
+    <!-- Section Informations académiques -->
+    <div class="mb-4">
+        <h5 class="section-title">Informations académiques</h5>
+        <hr>
+        
+        <div class="row g-3">
+            <!-- Niveau scolaire -->
+            <div class="col-md-4">
+                <label for="{{ form.niveau_scolaire.id_for_label }}" class="form-label">
+                    {{ form.niveau_scolaire.label }}
+                </label>
+                {{ form.niveau_scolaire }}
+                <div class="form-text">{{ form.niveau_scolaire.help_text }}</div>
+                {% if form.niveau_scolaire.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.niveau_scolaire.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <!-- Moyenne obtenue -->
+            <div class="col-md-4">
+                <label for="{{ form.moyenne_obtenue.id_for_label }}" class="form-label">
+                    {{ form.moyenne_obtenue.label }}
+                </label>
+                <div class="input-group">
+                    {{ form.moyenne_obtenue }}
+                    <span class="input-group-text">/20</span>
+                </div>
+                <div class="form-text">{{ form.moyenne_obtenue.help_text }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section Fichiers -->
+    <div class="mb-4">
+        <h5 class="section-title">Documents à fournir</h5>
+        <hr>
+        
+        <div class="row g-3">
+            <!-- Relevé de notes -->
+            <div class="col-md-6">
+                <label for="{{ form.releve_note_precedent.id_for_label }}" class="form-label">
+                    {{ form.releve_note_precedent.label }}
+                    <span class="text-danger">*</span>
+                </label>
+                {{ form.releve_note_precedent }}
+                <div class="form-text">{{ form.releve_note_precedent.help_text }}</div>
+            </div>
+            
+            <!-- Lettre de recommandation -->
+            <div class="col-md-6">
+                <label for="{{ form.lettre_recommandation.id_for_label }}" class="form-label">
+                    {{ form.lettre_recommandation.label }}
+                    <span class="text-danger">*</span>
+                </label>
+                {{ form.lettre_recommandation }}
+                <div class="form-text">{{ form.lettre_recommandation.help_text }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-3">
+        <i class="fas fa-paper-plane me-2"></i>Soumettre la demande
+    </button>
+</form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

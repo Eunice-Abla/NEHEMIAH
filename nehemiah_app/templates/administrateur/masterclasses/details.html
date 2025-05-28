@@ -1,0 +1,161 @@
+{% extends "administrateur/base.html" %}
+{% load static %}
+
+{% block title %}Masterclass: titre{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Masterclass: titre</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="">Masterclasses</a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">titre</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">titre</h4>
+                </div>
+                <div class="card-body">
+                    <div class="embed-responsive embed-responsive-16by9 mb-4">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <span class="badge badge-primary">{{ masterclass.field }}</span>
+                            <span class="badge badge-info ml-2">{{ masterclass.duration }}</span>
+                        </div>
+                        <div>
+                            <span class="text-muted">Publié le: {{ masterclass.date }}</span>
+                        </div>
+                    </div>
+                    
+                    <p>{{ masterclass.description }}</p>
+                    
+                    <div class="progress-container mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>Progression</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress progress-sm">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-block">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        Marquer comme terminée
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h4 class="card-title">Discussion</h4>
+                </div>
+                <div class="card-body">
+                    <div class="media mb-4">
+                        <img src="{% static 'admin/assets/img/profile1.jpg' %}" class="mr-3 rounded-circle" width="50" alt="...">
+                        <div class="media-body">
+                            <h5 class="mt-0">Jean Dupont</h5>
+                            <p>Très intéressant comme approche, merci pour cette masterclass !</p>
+                            <small class="text-muted">Posté il y a 2 jours</small>
+                        </div>
+                    </div>
+                    
+                    <div class="media mb-4">
+                        <img src="{% static 'admin/assets/img/profile2.jpg' %}" class="mr-3 rounded-circle" width="50" alt="...">
+                        <div class="media-body">
+                            <h5 class="mt-0">Marie Martin</h5>
+                            <p>Quelqu'un pourrait partager des ressources complémentaires ?</p>
+                            <small class="text-muted">Posté il y a 1 jour</small>
+                        </div>
+                    </div>
+                    
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" placeholder="Ajouter un commentaire..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Poster</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Ressources</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-file-pdf mr-2 text-danger"></i>
+                                    Slides.pdf
+                                </div>
+                                <a href="#" class="btn btn-sm btn-link">Télécharger</a>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas fa-file-word mr-2 text-primary"></i>
+                                    Exercices.docx
+                                </div>
+                                <a href="#" class="btn btn-sm btn-link">Télécharger</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h4 class="card-title">Masterclasses similaires</h4>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Machine Learning avancé</h5>
+                                <small class="text-muted">2h15</small>
+                            </div>
+                            <p class="mb-1">Concepts avancés en ML</p>
+                            <small class="text-muted">Informatique</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Design Patterns</h5>
+                                <small class="text-muted">1h45</small>
+                            </div>
+                            <p class="mb-1">Principaux patterns en développement</p>
+                            <small class="text-muted">Informatique</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

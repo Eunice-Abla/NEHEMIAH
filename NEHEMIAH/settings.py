@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-8f*1j+l*3v1wdr5-c3j&4s_ca$3%7m)8ov6ppxpyr-m_%qka2w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,9 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'utilisateurs',
-    'masterclasses',
-    'inscriptions'
+    'nehemiah_app',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +54,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'NEHEMIAH.urls'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'utilisateurs' / 'static',
+    BASE_DIR / 'nehemiah_app' / 'static',
    
 ]
 
@@ -63,9 +62,7 @@ STATICFILES_DIRS = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'utilisateurs' / 'templates'
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,8 +83,11 @@ WSGI_APPLICATION = 'NEHEMIAH.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':'nehemiah',
+        'USER':'postgres',
+        'HOST':'localhost',
+        'PASSWORD':'shalomG@2005',
     }
 }
 
@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
 TIME_ZONE = 'UTC'
 
@@ -132,3 +132,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Chemin absolu où les fichiers uploadés seront stockés
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# URL utilisée pour accéder aux fichiers media via le navigateur
+MEDIA_URL = '/media/'
+
+AUTH_USER_MODEL = "nehemiah_app.Utilisateur"

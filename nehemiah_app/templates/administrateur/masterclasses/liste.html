@@ -1,0 +1,91 @@
+{% extends "administrateur/base.html" %}
+{% load static %}
+
+{% block title %}Masterclasses{% endblock %}
+
+{% block body %}
+<div class="page-inner">
+    <div class="page-header">
+        <h3 class="fw-bold mb-3">Masterclasses</h3>
+        <ul class="breadcrumbs mb-3">
+            <li class="nav-home">
+                <a href="">
+                    <i class="icon-home"></i>
+                </a>
+            </li>
+            <li class="separator">
+                <i class="icon-arrow-right"></i>
+            </li>
+            <li class="nav-item">
+                <a href="#">Masterclasses</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center">
+                        <h4 class="card-title">Liste des masterclasses</h4>
+                        <button class="btn btn-primary btn-round ml-auto" disabled>
+                            <i class="fa fa-plus"></i>
+                            Nouvelle masterclass (admin seulement)
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="basic-datatables" class="display table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Titre</th>
+                                    <th>Filière</th>
+                                    <th>Date</th>
+                                    <th>Durée</th>
+                                    <th>Statut</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Introduction à l'IA</td>
+                                    <td>Informatique</td>
+                                    <td>15/10/2023</td>
+                                    <td>1h30</td>
+                                    <td><span class="badge badge-success">Terminée</span></td>
+                                    <td>
+                                        <a href="" class="btn btn-primary btn-sm">Voir</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Design Thinking</td>
+                                    <td>Mode</td>
+                                    <td>20/10/2023</td>
+                                    <td>2h00</td>
+                                    <td><span class="badge badge-warning">En cours</span></td>
+                                    <td>
+                                        <a href="" class="btn btn-primary btn-sm">Voir</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        $('#basic-datatables').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+            }
+        });
+    });
+</script>
+{% endblock %}
