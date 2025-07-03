@@ -147,22 +147,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="row mt-3">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="{{ user_form.photo_profil.id_for_label }}" class="form-label">
-                                                    Photo de profil
-                                                </label>
-                                                {{ user_form.photo_profil }}
-                                                {% if user_form.photo_profil.errors %}
-                                                    <div class="invalid-feedback d-block">
-                                                        {{ user_form.photo_profil.errors }}
-                                                    </div>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
 
@@ -225,7 +209,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="{{ beneficiaire_form.nom.id_for_label }}" class="form-label required-field">
-                                                    Date de naissance
+                                                    Nom
                                                 </label>
                                                 {{ beneficiaire_form.nom }}
                                                 {% if beneficiaire_form.nom.help_text %}
@@ -244,7 +228,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="{{ user_form.prenom.id_for_label }}" class="form-label required-field">
-                                                    Téléphone
+                                                    Prénom
                                                 </label>
                                                 {{ beneficiaire_form.prenom }}
                                                 {% if beneficiaire_form.prenom.help_text %}
@@ -293,8 +277,24 @@
 
 
                                     
-                                    <div class="row mt-3">
-                                        <div class="col-md-12">
+                                    <div class="row">
+                                       
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="{{ user_form.photo_profil.id_for_label }}" class="form-label">
+                                                    Photo de profil
+                                                </label>
+                                                {{ user_form.photo_profil }}
+                                                {% if user_form.photo_profil.errors %}
+                                                    <div class="invalid-feedback d-block">
+                                                        {{ user_form.photo_profil.errors }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    
+
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="{{ beneficiaire_form.adresse.id_for_label }}" class="form-label required-field">
                                                     Adresse complète
@@ -324,6 +324,7 @@
                                     <button type="submit" class="btn btn-submit">
                                         <i class="fas fa-user-plus me-2"></i> Enregistrer
                                     </button>
+
                                 </div>
                             </form>
                         </div>

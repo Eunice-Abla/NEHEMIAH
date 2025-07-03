@@ -12,7 +12,7 @@ from django.contrib.auth.forms import UserCreationForm
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = Utilisateur
-        fields = ['username', 'email','telephone', 'photo_profil', 'password1', 'password2', 'is_admin']
+        fields = ['username', 'email','telephone', 'photo_profil', 'password1', 'password2']
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
@@ -44,6 +44,31 @@ class CustomUserCreationForm(UserCreationForm):
         return telephone
 
 
+
+#---------------------------------------CONNEXION FORM-----------------------------------------------------------
+# class CustomLoginForm(AuthenticationForm):
+#     username = forms.CharField(
+#         label="Nom d'utilisateur ou Email",
+#         widget=forms.TextInput(attrs={
+#             'class': 'form-control',
+#             'placeholder': 'Entrez votre identifiant',
+#             'required': 'required'
+#         })
+#     )
+#     password = forms.CharField(
+#         label="Mot de passe",
+#         widget=forms.PasswordInput(attrs={
+#             'class': 'form-control',
+#             'placeholder': 'Entrez votre mot de passe',
+#             'required': 'required'
+#         })
+#     )
+#     remember_me = forms.BooleanField(
+#         required=False,
+#         widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+#         label="Se souvenir de moi"
+#     )
+
 #---------------------------------------BENEFICIAIRE FORM--------------------------------------------------------
 class BeneficiaireForm(forms.ModelForm):
     class Meta:
@@ -65,7 +90,7 @@ class BeneficiaireForm(forms.ModelForm):
             }),
             'adresse': forms.Textarea(attrs={
                 'class': 'form-control',
-                'rows': 3
+                'rows': 1
             }),
             'sexe': forms.Select(attrs={'class': 'form-select'}),
         }

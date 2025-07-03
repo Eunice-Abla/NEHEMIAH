@@ -1,6 +1,6 @@
 
 {% load static %}
-<nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom" style="background-color: yellow  
+<nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom" style="background-color: rgb(7, 92, 7)
 !important;">
     <div class="container-fluid">
         <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
@@ -99,9 +99,15 @@
                     <div class="avatar-sm">
                         <img src="{% static 'admin/assets/img/profile.jpg' %}" alt="..." class="avatar-img rounded-circle" />
                     </div>
-                    <span class="profile-username">
-                        <span class="op-7">Bonjour,</span>
-                        <span class="fw-bold">{% firstof user.get_full_name user.username %}</span>
+                    <span style="color: #ffff !important" class="profile-username">
+                        <span class="op-7">
+                            {% if user.is_admin %}
+                                Bonjour admin,
+                            {% else %}
+                                Bonjour,
+                            {% endif %}
+                        </span>
+                        <span class="fw-bold">{{ user.username }}</span>
                     </span>
                 </a>
                 <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -114,7 +120,7 @@
                                 <div class="u-text">
                                     <h4>{% firstof user.get_full_name user.username %}</h4>
                                     <p class="text-muted">{{ user.email }}</p>
-                                    <a href="" class="btn btn-xs btn-secondary btn-sm">Mon Profil</a>
+                                    <a href="{% url 'profil' %}" class="btn btn-xs btn-secondary btn-sm">Mon Profil</a>
                                 </div>
                             </div>
                         </li>
@@ -123,7 +129,7 @@
                             <a class="dropdown-item" href="{% url 'profil' %}">Mon Profil</a>
                             <a class="dropdown-item" href="">Tableau de bord</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="">Déconnexion</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Déconnexion</a>
                         </li>
                     </div>
                 </ul>

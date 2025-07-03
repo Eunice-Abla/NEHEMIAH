@@ -11,7 +11,7 @@
     <div class="sidebar-logo">
         <div class="logo-header" style="background-color: #E84E1B !important;">
             <a href="" class="logo">
-                <img src="{% static 'admin/assets/img/logo.png' %}" alt="Nehemia Logo" class="navbar-brand" height="30" />
+                <img src="{% static 'admin/assets/img/nepae-logo.png' %}" alt="Nehemia Logo" class="navbar-brand" />
             </a>
             <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
@@ -35,7 +35,6 @@
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
-                    <h4 class="text-section">Étudiant</h4>
                 </li>
 
                 <li class="nav-item {% if 'masterclasses' in request.resolver_match.url_name %}active{% endif %}">
@@ -94,20 +93,12 @@
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
-                    <h4 class="text-section">Administration</h4>
                 </li>
 
                 <li class="nav-item ">
                     <a href="{% url 'inscription' %}">
                         <i class="fas fa-user-plus"></i>
                         <p>Réinscription</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="#">
-                        <i class="fas fa-cog"></i>
-                        <p>Paramètres</p>
                     </a>
                 </li>
             </ul>

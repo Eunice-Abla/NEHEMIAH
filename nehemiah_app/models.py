@@ -28,8 +28,8 @@ class Filiere(models.Model):
     """Filières d'étude disponibles"""
     nom = models.CharField(max_length=100)
     description = models.TextField()
-    couleur = models.CharField(max_length=7, default='#3498db')
-    icone = models.CharField(max_length=50, default='fas fa-book')
+    couleur = models.CharField(max_length=7)
+    icone = models.CharField(max_length=50)
     
     def __str__(self):
         return self.nom
@@ -61,12 +61,12 @@ class Beneficiaire(models.Model):
     
     utilisateur = models.OneToOneField(Utilisateur, on_delete=models.CASCADE)
     numero_cde = models.CharField(max_length=20, unique=True)
-    nom = models.CharField(max_length=255, default="nom")
-    prenom = models.CharField(max_length=255, default="prenom")
-    numero_beneficiaire = models.CharField(unique=True, default=000000000, max_length=9)
+    nom = models.CharField(max_length=255)
+    prenom = models.CharField(max_length=255)
+    numero_beneficiaire = models.CharField(unique=True, max_length=9)
     date_naissance = models.DateField(null=True)
     adresse = models.TextField(blank=True)
-    sexe = models.CharField(max_length=20, choices=(("F", "Féminin"), ("M", "Masculin")), default='M')
+    sexe = models.CharField(max_length=20, choices=(("F", "Féminin"), ("M", "Masculin")))
 
 
 
@@ -79,7 +79,7 @@ class Masterclasse(models.Model):
     image = models.ImageField(blank=True, null=True, upload_to="masterclasses/ressources")
     url_video = models.URLField()
     duree = models.PositiveIntegerField(help_text="Durée en minutes")
-    date_publication = models.DateTimeField(default=timezone.now)
+    date_publication = models.DateTimeField(auto_now_add=True)
     est_active = models.BooleanField(default=True)
     ressources = models.FileField(upload_to='masterclasses/ressources/', blank=True)
 

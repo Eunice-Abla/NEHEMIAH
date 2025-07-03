@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <style>
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .auth-logo img {
+            max-width: 150px;
+        }
+        .card-header {
+            background-color: #1AA27C !important;
+        }
+        .card-title, .card-category {
+            color: #fff !important;
+        }
+        .btn-login {
+            background-color: #1AA27C !important;
+            color: white !important;
+            width: 100%;
+        }
+        .btn-forgot {
+            color: #1AA27C !important;
+        }
+        .invalid-feedback {
+            color: #dc3545;
+            font-size: 0.875em;
+        }
+        .auth-footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #6c757d;
+        }
+    </style>
+    <link rel="icon" href="{% static 'admin/assets/img/kaiadmin/favicon.ico' %}" type="image/x-icon">
+    <!-- Fonts and icons -->
+    <script src="{% static 'admin/assets/js/plugin/webfont/webfont.min.js' %}"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["{% static 'admin/assets/css/fonts.min.css' %}"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{% static 'admin/assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/assets/css/plugins.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/assets/css/kaiadmin.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/assets/css/kaiadmin.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/assets/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+            <div class="col-md-6 col-lg-5">
+                <div class="auth-logo">
+                    <!-- <img src="{% static 'admin/assets/img/logo.png' %}" alt="Logo"> -->
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Connexion</h4>
+                        <p class="card-category">Entrez vos identifiants pour accéder à votre compte</p>
+                    </div>
+                    <div class="card-body">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        
+                        <form method="post" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="email" name="email" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer votre email.
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password" class="form-label">Mot de passe</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                                <div class="invalid-feedback">
+                                    Veuillez entrer votre mot de passe.
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                                <label class="form-check-label" for="remember">Se souvenir de moi</label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-login mt-3">
+                                <i class="fas fa-sign-in-alt me-2"></i> Se connecter
+                            </button>
+                            
+                            <div class="text-center mt-3">
+                                <a href="" class="btn-forgot">
+                                    Mot de passe oublié ?
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="auth-footer mt-4">
+                    <p>Vous n'avez pas de compte ? <a href="{% url 'inscription' %}" style="color: #1AA27C;">S'inscrire</a></p>
+                    <p>&copy; {% now "Y" %} Tous droits réservés</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="{% static 'admin/assets/js/core/jquery.3.2.1.min.js' %}"></script>
+    <script src="{% static 'admin/assets/js/core/bootstrap.min.js' %}"></script>
+    <script>
+        // Validation du formulaire
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+</html>
